@@ -13,3 +13,4 @@ docker-compose up -d
 
 ## Managers
 * Redis Commander: `http://localhost:8081`
+* Mongo cLient: `http://localhost:8082`
