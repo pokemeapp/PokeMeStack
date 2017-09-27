@@ -9,24 +9,28 @@ services:
       - ./data/db:/data/db
     ports:
       - "27017:27017"
-    restart: always
     command: mongod --smallfiles --logpath=/dev/null # --quiet
+    restart: always
 
   redis:
     image: redis:2.8
-    restart: always
     ports:
       - "6379:6379"
+    restart: always
 
   redisCommander:
     image: tenstartups/redis-commander
-    restart: always
     command: --redis-host redis
     links:
       - redis:redis
+    ports:
+      - "8081:8081"
+    restart: always
 
   fakesmtp:
     image: munkyboy/fakesmtp
-    restart: always
     volumes:
       - ./mail:/var/mail:rw
+    ports:
+      - "8025:25"
+    restart: always
