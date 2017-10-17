@@ -32,6 +32,7 @@ cp pmc /usr/local/bin/pmc
 
 Now, you can execute the following commands:
 ```bash
+cp .env.example .env
 pmc install
 ```
 ```bash
