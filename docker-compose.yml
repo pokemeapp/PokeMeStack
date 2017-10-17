@@ -1,47 +1,33 @@
 version: '2'
 
-networks:
-  mongodb_net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 192.168.213.0/24
-          gateway: 192.168.213.1
 services:
-  mongodb:
-    image: mongo:latest
-    environment:
-      - MONGO_DATA_DIR=/data/db
-      - MONGO_LOG_DIR=/dev/null
-    networks:
-      - mongodb_net
-    hostname: mongodb
+  mysql:
+    image: mysql:5.6
     volumes:
-      - ./data/db:/data/db
+      - ./data/database:/var/lib/mysql
+    command: --sql_mode=""
     ports:
-      - "27017:27017"
-    command: mongod --smallfiles --logpath=/dev/null # --quiet
+      - "3307:3306"
     restart: always
-
-  mongoclient:
-    image: mongoclient/mongoclient:latest
-    container_name: mongoclient
-    hostname: mongoclient
+    environment:
+      MYSQL_ROOT_PASSWORD: somethingbetter
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql:mysql
     depends_on:
-      - mongodb
-    networks:
-      - mongodb_net
+      - mysql
+    restart: always
     ports:
-      - "8082:3000"
+      - "8082:80"
+    environment:
+      PMA_HOSTS: mysql
     
   redis:
     image: redis:2.8
     ports:
       - "6379:6379"
     restart: always
-    networks:
-      - mongodb_net
 
   redisCommander:
     image: tenstartups/redis-commander
@@ -51,8 +37,6 @@ services:
     ports:
       - "8081:8081"
     restart: always
-    networks:
-      - mongodb_net
 
   fakesmtp:
     image: munkyboy/fakesmtp
@@ -61,5 +45,3 @@ services:
     ports:
       - "8025:25"
     restart: always
-    networks:
-      - mongodb_net

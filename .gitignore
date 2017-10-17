@@ -1,4 +1,4 @@
-data/db/*
-!data/db/.gitkeep
+data/database/*
+!data/database/.gitkeep
 mail/*
 !mail/.gitkeep
