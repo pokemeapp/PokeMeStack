@@ -2,3 +2,4 @@ data/database/*
 !data/database/.gitkeep
 mail/*
 !mail/.gitkeep
+app/
