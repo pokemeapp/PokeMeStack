@@ -46,11 +46,12 @@ If everything works fine, the server will available on `localhost:8080`.
 ## Addresses
 * MySQL address: `3307`
 * Redis address: `6379`
-* FakeSMTP address: `8025`
+* FakeSMTP(MailDEV) address: `8025`
 
 ## Managers
 * Redis Commander: `http://localhost:8081`
-* Mongo cLient: `http://localhost:8082`
+* PHPMyAdmin: `http://localhost:8082`
+* MailDev Client: `http://localhost:8082`
 
 ## Server
 `http://localhost:8080`
