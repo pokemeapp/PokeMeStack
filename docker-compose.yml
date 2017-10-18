@@ -66,9 +66,8 @@ services:
     restart: always
 
   fakesmtp:
-    image: munkyboy/fakesmtp
-    volumes:
-      - ./mail:/var/mail:rw
+    image: djfarrelly/maildev
     ports:
+      - "8083:80"
       - "8025:25"
     restart: always
