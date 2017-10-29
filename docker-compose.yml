@@ -30,8 +30,7 @@ services:
     image: mysql:5.7
     volumes:
       - ./data/database:/var/lib/mysql
-      - ./db-scripts:/db-scripts
-    command: "/db-scripts/db_run.sh"
+    command: --sql_mode=""
     ports:
       - "3307:3306"
     restart: always
