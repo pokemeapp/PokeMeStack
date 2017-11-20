@@ -1,3 +1,0 @@
-[submodule "PokeMeServer"]
-	path = app
-	url = git@github.com:pokemeapp/PokeMeServer.git
