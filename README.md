@@ -2,14 +2,14 @@
 
 ## Installation
 
-## Easy way
+### Easy way
 
 ```bash
 sudo ./install.sh
 ```
 
 
-## Hard way
+### Hard way
 ```bash
 docker-compose up -d
 ```
