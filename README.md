@@ -2,6 +2,14 @@
 
 ## Installation
 
+## Easy way
+
+```bash
+sudo ./install.sh
+```
+
+
+## Hard way
 ```bash
 docker-compose up -d
 ```
@@ -11,7 +19,7 @@ After docker containers are running, you have to clone the server to the app dir
 git clone git@github.com:pokemeapp/PokeMeServer.git app
 ```
 
-You have the server inside the app container now. 
+You have the server inside the app container now.
 
 Now, install the composer dependencies and generate a key for Laravel.
 I made two executable files for that job, so zou don't have to exec into the container.
